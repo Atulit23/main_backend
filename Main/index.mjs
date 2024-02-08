@@ -22,9 +22,8 @@ app.get("/image-prediction", async (req, res) => {
 app.get("/review-prediction", async (req, res) => {
   const url = req.query;
   const result = await review_app.predict("/predict", [url.url]);
-  console.log(url)
-  console.log(result)
-  res.json(result.data[0]);
+  console.log(JSON.parse(result.data[0]))
+  res.json(JSON.parse(result.data[0]));
 });
 
 app.get("/", (req, res) => {
